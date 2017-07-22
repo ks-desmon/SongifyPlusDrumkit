@@ -1,0 +1,194 @@
+<html>
+	<head>
+		<title>drum kit</title>
+		<link rel="stylesheet" type="text/css" href="drumkit.css"> <!-- LINK TO CSS -->
+	</head>
+	<body>
+		<div class="keys"> <!-- MAIN DIV -->
+
+    <div class="key key1">						<!-- SMALL DIVS -->
+
+      <kbd>A</kbd>
+
+      <span class="sound">clap</span>
+
+    </div>
+
+    <div  class="key key2">
+
+      <kbd>S</kbd>
+
+      <span class="sound">hihat</span>
+
+    </div>
+
+    <div  class="key key3">
+		<kbd>D</kbd>
+		<span class="sound">kick</span>
+
+    </div>
+
+    <div  class="key key4">
+
+      <kbd>F</kbd>
+
+      <span class="sound">openhat</span>
+
+    </div>
+
+    <div  class="key key5">
+
+      <kbd>G</kbd>
+
+      <span class="sound">boom</span>
+
+    </div>
+
+    <div  class="key key6">
+
+      <kbd>H</kbd>
+
+      <span class="sound">ride</span>
+
+    </div>
+
+    <div  class="key key7">
+
+      <kbd>J</kbd>
+
+      <span class="sound">snare</span>
+
+    </div>
+
+    <div  class="key key8">
+
+      <kbd>K</kbd>
+
+      <span class="sound">tom</span>
+
+    </div>
+
+    <div  class="key key9">
+
+      <kbd>L</kbd>
+
+      <span class="sound">tink</span>
+
+    </div>
+
+  </div>	
+		<audio src="sounds/sound1.mp3" class="audio1"></audio>  <!-- AUDIO SOURCES  -->
+		<audio src="sounds/sound2.mp3" class="audio2"></audio>
+		<audio src="sounds/sound3.mp3" class="audio3"></audio>
+		<audio src="sounds/sound4.mp3" class="audio4"></audio>
+		<audio src="sounds/sound5.mp3" class="audio5"></audio>
+		<audio src="sounds/sound6.mp3" class="audio6"></audio>
+		<audio src="sounds/sound7.mp3" class="audio7"></audio>
+		<audio src="sounds/sound8.mp3" class="audio8"></audio>
+		<audio src="sounds/sound9.mp3" class="audio9"></audio>
+		 <script src="jquery.js">
+    </script>
+		<script>
+		
+		
+		function toggleSong(song) 									// FUNN for play and and pauseing
+		{
+			//var song = document.querySelector('audio');
+			if(song.paused == true) {
+			//console.log('Playing');
+			//$('.play-icon').removeClass('fa-play').addClass('fa-pause');
+			song.play();
+			return;
+			}
+			else {
+			//console.log('Pausing');
+			//$('.play-icon').removeClass('fa-pause').addClass('fa-play');
+			song.currentTime=0;												//this will stop the current song 
+			song.play();
+			return;
+			//key.addClass("playing");
+			}
+		}
+		
+		
+		$('body').on('keypress', function(event)							//body pr keypressing ka key event hai 
+		{
+			if (event.keyCode == 65 || event.keyCode==97)					// agar key code upper or lower ke ye huue to aag work hoga
+				{
+				var song = document.querySelector('.audio1');				// audio select ki
+				setTimeout(function(){ $('.key1').addClass('playing');}, 30);		//animation ke liye class add ki 
+				setTimeout(function(){ $('.key1').removeClass('playing');}, 100);// US Class ko remove kiya then 
+				toggleSong(song);		// toggle ko call kiya 
+				}
+			else if (event.keyCode == 83 || event.keyCode==115)
+				{
+				var song = document.querySelector('.audio2');
+				setTimeout(function(){ $('.key2').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key2').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+			else if (event.keyCode == 68 || event.keyCode==100)
+				{
+				var song = document.querySelector('.audio3');
+				setTimeout(function(){ $('.key3').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key3').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+			else if (event.keyCode == 70 || event.keyCode==102)
+				{
+				var song = document.querySelector('.audio4');
+				setTimeout(function(){ $('.key4').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key4').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+				else if (event.keyCode == 103 || event.keyCode==71)
+				{
+				var song = document.querySelector('.audio5');
+				setTimeout(function(){ $('.key5').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key5').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+				else if (event.keyCode == 104 || event.keyCode==72)
+				{
+				var song = document.querySelector('.audio6');
+				setTimeout(function(){ $('.key6').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key6').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+				else if (event.keyCode == 106 || event.keyCode==74)
+				{
+				var song = document.querySelector('.audio7');
+				setTimeout(function(){ $('.key7').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key7').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+				else if (event.keyCode == 107 || event.keyCode==75)
+				{
+				var song = document.querySelector('.audio8');
+				setTimeout(function(){ $('.key8').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key8').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+				else if (event.keyCode == 108 || event.keyCode==76)
+				{
+				var song = document.querySelector('.audio9');
+				setTimeout(function(){ $('.key9').addClass('playing');}, 30);
+				setTimeout(function(){ $('.key9').removeClass('playing');}, 100);
+				toggleSong(song);
+				//song.play();
+				}
+				else
+				{															// if wrong key press ki to ye message aayega 
+					alert("wrong key");
+				}
+		});
+		</script>
+	</body>
+</html>
