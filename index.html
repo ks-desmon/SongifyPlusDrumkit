@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title> Song App</title>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	 <link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-
 <body>
     <div class="wrapper">
         <section class="welcome-screen">
-            <h1> Welcome to Songify </h1>
+          <h1> <marquee>Welcome to Songify</marquee></h1>
             <h3> Enter name to access your account </h3>
             <div class="input-wrapper">
                 <input type="text" placeholder="Name" id="name-input">
@@ -20,42 +19,44 @@
             </div>
         </section>
         <div class="main hidden">
-			<a href="drum kit/drumkit.html">drumkit</a>
+			<a class="edit2" href="drum kit/drumkit.html">DRUMKIT</a>
             <header>
-                <div class="right floated user-name"> </div>
+                <div class="right floated user-name">
+				</div>
             </header>
             <section class="content">
-                <audio src="song1.mp3"></audio>
+                <!-- <audio src="song1.mp3"></audio> -->
+				<audio src=""></audio>
 				<table id="songs">
 					<thead class="list-headers">
 						<tr>
-							<td> Title </td>
-							<td> Artist </td>
-							<td> Album </td>
-							<td> Duration </td>
+							<td class="edit1"> Title </td>
+							<td class="edit1"> Artist </td>
+							<td class="edit1"> Album </td>
+							<td class="edit1"> Duration </td>
 						</tr>
 					</thead>
         <!-- <div class="song-list"> -->
 					<tbody>
-						<tr class="song" id="song1">
+						<tr class="song edit1" id="song1">
 							<td class="song-name"></td>
 							<td class="song-artist"></td>
 							<td class="song-album"></td>
 							<td class="song-length"></td>
 						</tr>
-						<tr class="song" id="song2">
+						<tr class="song edit1" id="song2">
 							<td class="song-name"></td>
 							<td class="song-artist"></td>
 							<td class="song-album"></td>
 							<td class="song-length"></td>
 						</tr>
-						<tr class="song" id="song3">
+						<tr class="song edit1" id="song3">
 							<td class="song-name"></td>
 							<td class="song-artist"></td>
 							<td class="song-album"></td>
 							<td class="song-length"></td>
 						</tr>
-						<tr class="song" id="song4">
+						<tr class="song edit1" id="song4">
 							<td class="song-name"></td>
 							<td class="song-artist"></td>
 							<td class="song-album"></td>
@@ -64,29 +65,28 @@
 					<!-- </div> -->
 					</tbody>
 				</table>
-
 				<div class="current-song-wrapper">
 					<img class="current-song-image" src="img/song1.jpg">
 					<div>
-					<p class="current-song-name">Tamma Tamma Again</p>
-					<p class="current-song-album">Badrinath ki Dulhania</p>
+					<p class="current-song-name edit1">Tamma Tamma Again</p>
+					<p class="current-song-album edit1">Badrinath ki Dulhania</p>
 					</div>
 				</div>
-            </section>
-            <footer>
-                <div class="controls">
-                    <div class="player-buttons">
+			</section>
+			<footer>
+				<div class="controls">
+					<div class="player-buttons">
 						<i class="fa fa-random clickable disabled" aria-hidden="true"></i>
 						<i class="fa fa-step-backward clickable" aria-hidden="true"></i>
 						<i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
 						<i class="fa fa-step-forward clickable" aria-hidden="true"></i>
 						<i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
-                    </div>
-                    <div class="progress-wrapper">
-                        <span class="time-elapsed"> </span>
-                        <div class="player-progress">
-                            <div class="progress-filled"> </div>
-                        </div>
+					</div>
+					<div class="progress-wrapper">
+					<span class="time-elapsed"> </span>
+						<div class="player-progress">
+							<div class="progress-filled"> </div>
+						</div>
                         <span class="song-duration"></span>
                     </div>
                 </div>
@@ -100,5 +100,4 @@
 <script src ="js/main.js">
     </script>
 </body>
-
 </html>
