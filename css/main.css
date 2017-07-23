@@ -20,6 +20,8 @@ h1 {
     height: 100%;
     width: 100%;
     background-color: #BBB;
+	background:url(img2.jpg);
+	background-repeat:no-repeat;
 }
 .welcome-screen {
     height: 100%;
@@ -208,10 +210,6 @@ table.dataTable tbody tr {
 	font-size:80px;
 	text-align:center;
 	
-}
-.swing {
-  transform-origin: top center;
-  animation-name: swing;
 }
 input
 {

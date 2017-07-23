@@ -1,11 +1,11 @@
 			var songs = [										 //variables song array hai of objects ka  
 		{
-        'name': 'Badri Ki Dulhania (Title Track)',				
-        'artist': 'Neha Kakkar, Monali Thakur',
-        'album': 'Badrinath ki Dulhania',
-        'duration': '2:56',
-       'fileName': 'song1.mp3',
-	   'image':'song1.jpg'
+		'name': 'Badri Ki Dulhania (Title Track)',				
+		'artist': 'Neha Kakkar, Monali Thakur',
+		'album': 'Badrinath ki Dulhania',
+		'duration': '2:56',
+		'fileName': 'song1.mp3',
+		'image':'song1.jpg'
 		},
 		{
         'name': 'Humma Song',
@@ -167,6 +167,10 @@
 
 		window.onload = function() {									// ye funn window ke load hone pr khud chlta hai 
 			changeCurrentSongDetails(songs[0]);
+			
+			
+			
+			
 																		/* for(var i=0;i<=songList.length;i++){
 																			var name= "#song"+ (i+1);
 																			var song=$(name);
@@ -185,7 +189,10 @@
 				song.find('.song-album').text(obj.album);
 				song.find('.song-length').text(obj.duration);
 				addSongNameClickEvent(obj,i+1);								
-			}	 	
+			}
+
+		
+			
 																	/*$('#song1 .song-artist').text(artistList[0]);
 																	$('#song2 .song-artist').text(artistList[1]);
 																	$('#song3 .song-artist').text(artistList[2]);
@@ -212,18 +219,32 @@
 			}
 		}
 		$('.welcome-screen button').on('click', function() {
-			var name = $('#name-input').val();									
-			if (name.length > 2) {									//	agar input text ki lingth do se jyada huui 
+			var name = $('#name-input').val();
+			var password = $('#password').val();
+			var orignalmail = "kundan@gmail.com";
+			var orignalpass = "kundan1234";
+			if (name.length < 2) 
+			{									//	agar input text ki lingth do se jyada huui 
+				alert("too short email")
+			}
+			else if (name != orignalmail) 
+			{
+				$('#name-input').addClass('error');
+			}
+			else if (password != orignalpass)
+			{
+				$('#password').addClass('error');
+			}
+			else
+			{
 				var message = "Welcome, " + name;
 				$('.audio').attr('src','song1.mp3');
 				$('.main .user-name').text(message);						
 				$('.welcome-screen').addClass('hidden');			// welcome class hide ho jayegi
 				$('.main').removeClass('hidden');					// and main se hide class remove ho jayegi
-				setTimeout(function() {								//har interval pr ye time update krta hai
-			$('.main .user-name').addClass('swing');
-			},3000);
-			} else {
-				$('#name-input').addClass('error');
+				setTimeout(function()
+				{								//har interval pr ye time update krta hai
+				},3000);
 			}
 		});
 		$('.play-icon').on('click', function() 
@@ -231,6 +252,31 @@
 			toggleSong();
 			
 		});
+		
+		$('.fa-step-forward').on('click', function() {
+				var audio = document.querySelector('audio');
+				setTimeout(function () {
+                audio.currentTime += 10;
+				}, 200);											// this is use to skip the duration of the song
+		});
+		
+				$('.fa-step-backward').on('click', function() {
+				var audio = document.querySelector('audio');
+				setTimeout(function () {
+                audio.currentTime -= 10;
+				}, 200);											// this is use to skip the duration of the song
+		});
+		
+		
+		
+		$('body').on('click', function() 
+		{
+		
+			setTimeout(function(){ $(".user-name").addClass("animated swing");	}, 150);
+			setTimeout(function(){ $(".user-name").removeClass("animated swing");	}, 300);
+		});
+		
+		
 		$('body').on('keypress', function(event)
 		{
 			var target = event.target;
@@ -238,8 +284,8 @@
 				{
 				toggleSong();
 				
-				setTimeout(function(){ $('.main .username').addClass('swing');}, 3000);
-																	//setTimeout(function(){ $('.key9').removeClass('playing');}, 100);
+				//setTimeout(function(){ $('.main .username').addClass('animated swing');}, 3000);
+				setTimeout(function(){ $('.key9').removeClass('playing');}, 100);
 				}
 		});
 		var currentSongNumber = 1;
@@ -254,13 +300,7 @@
 		{
 			$('.fa-random').toggleClass('disabled')
 			willShuffle = 1 - willShuffle;
-		});
-																		/* 		
-																				function timeJump() {
-																					var song = document.querySelector('audio')
-																					song.currentTime = song.duration - 2;													// this is use to skip the duration of the song
-																				}
-																		 */		
+		}); 			
 	$('audio').on('ended',function() 
 	{
 		var audio = document.querySelector('audio');
@@ -283,11 +323,15 @@
 		}
 		else if(willLoop == 1) 
 		{
-			var nextSongObj = songs[0];
+			/* var nextSongObj = songs[0];
 			audio.src = nextSongObj.fileName;
 			toggleSong();
 			changeCurrentSongDetails(nextSongObj);
-			currentSongNumber =  1;
+			currentSongNumber =  1; */
+			
+			
+			
+			
 		}
 		else 
 		{
@@ -295,3 +339,35 @@
 			audio.currentTime = 0;
 		}
 	})
+	
+	function randomExcluded(min, max, excluded) {
+    var n = Math.floor(Math.random() * (max-min) + min);
+    if (n >= excluded) n++;
+    return n;
+}
+	/* $(function () {
+    var audio = document.querySelector('audio');
+    audio.addEventListener('durationchange', function (e) {
+        $('.fa-step-forward').mousedown(function () {
+            setInterval(function () {
+                audio.currentTime += 10;
+            }, 200);
+        }).mouseup(function () {
+            // Continue to normal
+        });
+
+        $('.fa-step-backward').mousedown(function () {
+            setInterval(function () {
+                audio.currentTime += 10;
+            }, 200);
+        }).mouseup(function () {
+            // Continue to normal
+        });
+    });
+
+}); */
+
+
+
+
+
